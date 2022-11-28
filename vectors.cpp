@@ -60,10 +60,21 @@ std::vector<int> sumPairWise(const std::vector<int> &v1, const std::vector<int> 
 	*/
 
 	int min_len = std::min(v1.size(), v2.size());
-	std::vector<int> v = v1;
+	std::vector<int> v;	
+	
+	if (v1.size() > v2.size()) {
 
-	for(int i=0;i<min_len;i++) {
-		v[i] += v2[i];
+		v = v1; // copying in vector
+		for(int i=0;i<min_len;i++) {
+			v[i] += v2[i];
+		}	
+	}
+	else {
+
+		v = v2; // copying in vector
+		for(int i=0;i<min_len;i++) {
+			v[i] += v1[i];
+		}	
 	}
 
 	return v;
